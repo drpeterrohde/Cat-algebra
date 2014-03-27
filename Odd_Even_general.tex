@@ -1,0 +1,357 @@
+% Peter P. Rohde
+% Centre for Quantum Computation and Communication Technology
+% University of Queensland, QLD 4072, Australia
+
+\documentclass[aps,pra,singlecolumn,amsmath,amssymb,nofootinbib,superscriptaddress]{revtex4}
+
+%\input{Qcircuit}
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\op}[2]{\hat{\textbf{#1}}_{#2}}
+\newcommand{\dagop}[2]{\hat{\textbf{#1}}_{#2}^\dag}
+\usepackage[pdftex]{graphicx}
+\usepackage{mathrsfs}
+
+\begin{document}
+
+\bibliographystyle{apsrev}
+
+\title{Cat state sampling in the Fock limit}
+
+\author{Keith R. Motes}
+\affiliation{Centre for Engineered Quantum Systems, Department of Physics \& Astronomy, Macquarie University, Sydney NSW 2113, Australia}
+
+\author{Jonathan P. Dowling}
+\affiliation{Hearne Institute for Theoretical Physics and Department of Physics \& Astronomy, Louisiana State University, Baton Rouge, LA 70803}
+\affiliation{Computational Science Research Center, Beijing 100084, China}
+
+\author{William J. Munro}
+\affiliation{NTT Basic Research Laboratories, NTT Corporation, Atsugi, Kanagawa 243-0198, Japan}
+
+\author{Peter P. Rohde}
+\affiliation{Centre for Engineered Quantum Systems, Department of Physics \& Astronomy, Macquarie University, Sydney NSW 2113, Australia}
+\email[]{dr.rohde@gmail.com}
+\homepage{http://www.peterrohde.org}
+
+\date{\today}
+
+\frenchspacing
+
+% ABSTRACT
+\begin{abstract}
+\end{abstract}
+
+\maketitle
+
+\section{Odd Cat General Derivation}
+We begin with our generalised cat state result from cat sampling \cite{}. 
+\begin{equation} \label{eq:mainresult}
+\gamma_s = \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m \lambda_{t_j}^{(j)} f_{S_j}(\beta_{\vec{t}}^{(j)})\right).
+\end{equation}
+
+We propagate this state through the passive linear optics network, $\hat{U}$. Such a unitary network has the property that a multi-mode coherent state is mapped to another multi-mode coherent state,
+\begin{equation} \label{eq:coherent_map}
+\hat{U} \ket{\alpha^{(1)},\dots,\alpha^{(m)}} \to \ket{\beta^{(1)},\dots,\beta^{(m)}},
+\end{equation}
+where the relationship between the input and output amplitudes is given by,
+\begin{equation} \label{eq:coherent_map_relation}
+\beta^{(j)} = \sum_{k=1}^m U_{j,k} \alpha^{(k)}.
+\end{equation}
+This gives us a linear system of equations relating the input to the output amplitudes associated with each term. $\hat{U}$ acts on each term in the superposition of Eq.~\ref{eq:coherent_map} independently. Thus, the output state will be of the form,
+\begin{eqnarray} \label{eq:psi_out}
+\ket{\psi_\mathrm{out}} &=& \hat{U} \ket{\psi_\mathrm{in}} \nonumber \\
+&=& \sum_{\vec{t}=1}^{t} \lambda_{t_1}^{(1)}\dots \lambda_{t_m}^{(m)} \ket{\beta_{\vec{t}}^{(1)}, \dots, \beta_{\vec{t}}^{(m)}}.
+\end{eqnarray}
+
+We input the odd cat state which has the form 
+\begin{eqnarray}
+\ket{\mathrm{cat}_-} &=& \frac{\ket{\alpha}-\ket{-\alpha}}{\sqrt{2(1-\mathrm{exp}[-2\alpha^2])}}.
+\end{eqnarray}
+
+When considering the specific example of $\ket{\mathrm{cat}_-}$ the $\lambda_{t_j}^{(j)}$ of Eq.~\ref{eq:mainresult} goes to $(-1)^{t_j}$. Eq.~\ref{eq:mainresult} then becomes,
+\begin{eqnarray} \label{eq:mainresult2}
+\gamma_s &=& \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m (-1)^{t_j} \frac{f_{S_j}(\beta_{\vec{t}}^{(j)})}{\sqrt{2(1-\mathrm{exp}[-2\alpha^2])}} \right).
+\end{eqnarray}
+
+The function $f_n(\alpha)$ is given by
+\begin{equation} \label{eq:coherentState}
+f_n(\alpha) = e^{-\frac{|\alpha|^2}{2}} \frac{\alpha^n}{\sqrt{n!}}.
+\end{equation}
+Since the $\beta_{\vec{t}}^{(j)}$'s in Eq.~\ref{eq:mainresult2} depend on $\alpha$, we substitute in the argument of $f_{S_j}$ using Eq.~ \ref{eq:coherentState},
+\begin{equation} 
+\gamma_s = \frac{1}{\left(\sqrt{2(1-\mathrm{exp}[-2\alpha^2])}\right)^m} \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m (-1)^{t_j}  \mathrm{exp}\left[-\frac{|\beta_{\vec{t}}^{(j)}|^2}{2}\right] \frac{(\beta_{\vec{t}}^{(j)})^{S_j}}{\sqrt{S_j!}}\right)
+\end{equation}
+Next we take a first order approximation. Since $\alpha$ is small, the exponential in the numerator goes to one while the exponential in the denominator goes to $exp[x]\approx 1+x$ because otherwise this would diverge. This yields,
+\begin{eqnarray} \label{eq:sub}
+\gamma_s &\approx& \frac{1}{\left(\sqrt{2(1-(1-2\alpha^2)}\right)^m} \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m (-1)^{t_j} \left(1\right) \frac{(\beta_{\vec{t}}^{(j)})^{S_j}}{\sqrt{S_j!}}\right) \nonumber \\
+&=& \frac{1}{(2\alpha)^m\sqrt{S_1!S_2!\dots S_m!}} \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m (-1)^{t_j} (\beta_{\vec{t}}^{(j)})^{S_j}\right) \nonumber \\
+&=& \frac{1}{(2\alpha)^m\sqrt{S_1!S_2!\dots S_m!}} \sum_{\vec{t}=1}^{t} (-1)^{\sigma(\vec{t})}\prod_{j=1}^m (\beta_{\vec{t}}^{(j)})^{S_j}.
+\end{eqnarray}
+
+\section{Odd Cat HOM dip example (I prefer to use the later version below)}
+
+In the limit of small $\alpha$ we know that the odd cat state reduces to a single photon Fock state. Here we consider the case of a cat state being inputted into the first two modes and let the unitary be the Hadamard gate. In small $\alpha$ this corresponds to inputting a single photon Fock state into the first two modes and interfering them in a single 50-50 beamsplitter. Therefore, the corresponding bunching in the output modes would to be expected. In this section we show that our expression of Eq.~\ref{eq:mainresult2} does show the expected bunching. 
+
+We begin by putting an odd cat state $\ket{\mathrm{cat}_-}$ with $t=2$ terms into the first $m=2$ modes. Then Eq.~\ref{eq:mainresult2} becomes,
+\begin{equation}
+\gamma_s = \frac{1}{N^2} \sum_{\vec{t}=1}^{2} \prod_{j=1}^{2} (-1)^{t_j} f_{S_j}(\beta_{\vec{t}}^{(j)}),
+\end{equation}
+where $N=\sqrt{2(1-\mathrm{exp}[-2\alpha^2])}$. Next lets expand this out,
+\begin{eqnarray} \label{eq:UCatEx}
+\gamma_s &=& \frac{1}{N^2} \sum_{\vec{t}=1}^{2} (-1)^{t_1+t_2} f_{S_1}(\beta_{t_1,t_2}^{(1)}) f_{S_2}(\beta_{t_1,t_2}^{(2)}) \nonumber \\
+&=& \frac{1}{N^2} \left[(-1)^{1+1} f_{S_1}(\beta_{1,1}^{(1)}) f_{S_2}(\beta_{1,1}^{(2)})+(-1)^{1+2} f_{S_1}(\beta_{1,2}^{(1)}) f_{S_2}(\beta_{1,2}^{(2)})+(-1)^{2+1} f_{S_1}(\beta_{2,1}^{(1)}) f_{S_2}(\beta_{2,1}^{(2)})+ (-1)^{2+2} f_{S_1}(\beta_{2,2}^{(1)}) f_{S_2}(\beta_{2,2}^{(2)})\right]\nonumber \\
+&=& \frac{1}{N^2} \left[f_{S_1}(\beta_{1,1}^{(1)}) f_{S_2}(\beta_{1,1}^{(2)})- f_{S_1}(\beta_{1,2}^{(1)}) f_{S_2}(\beta_{1,2}^{(2)})- f_{S_1}(\beta_{2,1}^{(1)}) f_{S_2}(\beta_{2,1}^{(2)})+ f_{S_1}(\beta_{2,2}^{(1)}) f_{S_2}(\beta_{2,2}^{(2)})\right].
+\end{eqnarray}
+
+Now to calculate the $\beta_{\vec{t}}^{(j)}$'s for this case we first take the tensor product between the first two modes. Ignoring the normalisation factor this yields, 
+\begin{eqnarray} 
+\ket{\mathrm{cat}\_}&=&(\ket{\alpha}-\ket{-\alpha})\otimes(\ket{\alpha}-\ket{-\alpha}) \nonumber \\
+&=&\ket{\alpha,\alpha}-\ket{\alpha,-\alpha}-\ket{-\alpha,\alpha}+\ket{-\alpha,-\alpha}.
+\end{eqnarray}
+
+Next we pass them through a Hadamard gate,
+\begin{equation}
+U\ket{\mathrm{cat}\_}=\ket{\sqrt{2}\alpha,0}-\ket{0,\sqrt{2}\alpha}-\ket{0,-\sqrt{2}\alpha}+\ket{-\sqrt{2}\alpha,0}.
+\end{equation}
+Now we read off the $\beta_{\vec{t}}^{(j)}$'s to be
+\begin{eqnarray}
+\beta_{1,1}^{(1)}&=&\sqrt{2}\alpha \nonumber \\
+\beta_{1,2}^{(1)}&=&0 \nonumber \\
+\beta_{2,1}^{(1)}&=&0 \nonumber \\
+\beta_{2,2}^{(1)}&=&-\sqrt{2}\alpha \nonumber \\
+\beta_{1,1}^{(2)}&=&0 \nonumber \\
+\beta_{1,2}^{(2)}&=&\sqrt{2}\alpha \nonumber \\
+\beta_{2,1}^{(2)}&=&-\sqrt{2}\alpha \nonumber \\
+\beta_{2,2}^{(2)}&=&0. \nonumber \\
+\end{eqnarray}
+
+Now Eq.~\ref{eq:UCatEx} becomes,
+\begin{eqnarray} \label{eq:plugBetas}
+\gamma_s &=& \frac{1}{N^2} \left[f_{S_1}(\sqrt{2}\alpha) f_{S_2}(0)- f_{S_1}(0) f_{S_2}(\sqrt{2}\alpha)- f_{S_1}(0) f_{S_2}(-\sqrt{2}\alpha)+ f_{S_1}(-\sqrt{2}\alpha) f_{S_2}(0)\right].
+\end{eqnarray}
+Taking a closer look at $f_{S_j}(0)$ we get, 
+\begin{eqnarray}
+f_{S_j}(0)=e^0 \frac{0^{S_j}}{\sqrt{S_j!}}= \delta_{S_j,0},
+\end{eqnarray}
+since a non-zero number arbitrarily close to zero raised to a zero power is one. Now Eq.~\ref{eq:plugBetas} becomes,
+\begin{eqnarray}
+\gamma_s &=& \frac{1}{N^2} \left[
+f_{S_1}(\sqrt{2}\alpha)\delta_{S_2,0}
+-f_{S_2}(\sqrt{2}\alpha)\delta_{S_1,0}
+-f_{S_2}(-\sqrt{2}\alpha)\delta_{S_1,0}
++f_{S_1}(-\sqrt{2}\alpha) \delta_{S_2,0} \right].
+\end{eqnarray}
+Now using Eq.~\ref{eq:coherentState} to evaluate the $f_{S_j}$'s we obtain,
+\begin{eqnarray}
+&=& \frac{1}{N^2} \left[ 
+\frac{\mathrm{exp}[-\alpha^2](\sqrt{2}\alpha)^{S_1}}{\sqrt{S_1!}}\delta_{S_2,0}
+-\frac{\mathrm{exp}[-\alpha^2](\sqrt{2}\alpha)^{S_2}}{\sqrt{S_2!}}\delta_{S_1,0}
+-\frac{\mathrm{exp}[-\alpha^2](-\sqrt{2}\alpha)^{S_2}}{\sqrt{S_2!}}\delta_{S_1,0}
++\frac{\mathrm{exp}[-\alpha^2](-\sqrt{2}\alpha)^{S_1}}{\sqrt{S_1!}}\delta_{S_2,0} \right].
+\end{eqnarray}
+After factoring out the common exponential term and plugging back in the normalisation factor $N$ this becomes,
+\begin{eqnarray}
+\gamma_s &=& \frac{\mathrm{exp}[-\alpha^2]}{2(1-\mathrm{exp}[-2\alpha^2])} \left[ 
+\frac{(\sqrt{2}\alpha)^{S_1}}{\sqrt{S_1!}}\delta_{S_2,0}
+-\frac{(\sqrt{2}\alpha)^{S_2}}{\sqrt{S_2!}}\delta_{S_1,0}
+-\frac{(-\sqrt{2}\alpha)^{S_2}}{\sqrt{S_2!}}\delta_{S_1,0}
++\frac{(-\sqrt{2}\alpha)^{S_1}}{\sqrt{S_1!}}\delta_{S_2,0} \right].
+\end{eqnarray}
+Now we will invoke that $\alpha$ goes to zero so then the exponential in the numerator goes to one while the one in the denominator goes to the first order expansion $\mathrm{exp}[x]\approx1+x$ since there would be a singularity otherwise. Our expression then becomes, (\textbf{An alternate way to do this calculation (which is done below and I think we should go with the later one) would be to start with Eq.~\ref{eq:sub} and that would put us strait into this point basically. Of course we would still leave the part of calculating the $\beta$'s})
+\begin{eqnarray}  \label{eq:2InputSmallAlpha}
+\gamma_s &\approx& \frac{1}{4\alpha^2} \left[ 
+\frac{(\sqrt{2}\alpha)^{S_1}}{\sqrt{S_1!}}\delta_{S_2,0}
+-\frac{(\sqrt{2}\alpha)^{S_2}}{\sqrt{S_2!}}\delta_{S_1,0}
+-\frac{(-\sqrt{2}\alpha)^{S_2}}{\sqrt{S_2!}}\delta_{S_1,0}
++\frac{(-\sqrt{2}\alpha)^{S_1}}{\sqrt{S_1!}}\delta_{S_2,0} \right].
+\end{eqnarray}
+
+For this example we know that there are three possible signature outcomes. We expect that the configuration $S_1=S_2=1$ is not possible due to HOM photon bunching and thus in this case $\gamma_s=0$. For configurations $S_1=0$ and $S_2=2$ or $S_1=2$ and $S_2=0$ we would expect a non-zero configuration amplitude of $\gamma_s=1/2$ in each case. Next, we will show that this is indeed the case. 
+\subsection{Configuration $S_1=S_2=1$}
+With configuration $S_1=S_2=1$ Eq.~\ref{eq:2InputSmallAlpha} becomes,
+\begin{eqnarray}
+\gamma_s &\approx& \frac{1}{4\alpha^2} \left[ 
+(\sqrt{2}\alpha)\delta_{1,0}
+-(\sqrt{2}\alpha)\delta_{1,0}
+-(-\sqrt{2}\alpha)\delta_{1,0}
++(-\sqrt{2}\alpha)\delta_{1,0} \right] \nonumber \\
+&=& 0
+\end{eqnarray}
+which is zero as expected. 
+
+\subsection{Configuration $S_1=0$ and $S_2=2$}
+With configuration $S_1=0$ and $S_2=2$ Eq.~\ref{eq:2InputSmallAlpha} becomes,
+\begin{eqnarray}
+\gamma_s &\approx& \frac{1}{4\alpha^2} \left[ 
+\frac{(\sqrt{2}\alpha)^{0}}{\sqrt{0!}}\delta_{2,0}
+-\frac{(\sqrt{2}\alpha)^{2}}{\sqrt{2!}}\delta_{0,0}
+-\frac{(-\sqrt{2}\alpha)^{2}}{\sqrt{2!}}\delta_{0,0}
++\frac{(-\sqrt{2}\alpha)^{0}}{\sqrt{0!}}\delta_{2,0} \right] \nonumber \\
+&=& \frac{1}{4\alpha^2} \left[ 
+-\frac{2\alpha^{2}}{\sqrt{2}}
+-\frac{2\alpha^{2}}{\sqrt{2}} \right] \nonumber \\
+&=& \frac{-4\alpha^2}{4\sqrt{2}\alpha^2} \nonumber \\
+&=& \frac{-1}{\sqrt{2}},
+\end{eqnarray}
+which the square of this is $1/2$ as expected.
+
+\subsection{Configuration $S_1=2$ and $S_2=0$}
+With configuration $S_1=2$ and $S_2=0$ Eq.~\ref{eq:2InputSmallAlpha} becomes,
+\begin{eqnarray}
+\gamma_s &\approx& \frac{1}{4\alpha^2} \left[ 
+\frac{(\sqrt{2}\alpha)^{2}}{\sqrt{2!}}\delta_{0,0}
+-\frac{(\sqrt{2}\alpha)^{0}}{\sqrt{0!}}\delta_{2,0}
+-\frac{(-\sqrt{2}\alpha)^{0}}{\sqrt{0!}}\delta_{2,0}
++\frac{(-\sqrt{2}\alpha)^{2}}{\sqrt{2!}}\delta_{0,0} \right] \nonumber \\
+&=& \frac{1}{4\alpha^2} \left[ 
+\frac{2\alpha^{2}}{\sqrt{2}}
++\frac{2\alpha^{2}}{\sqrt{2}} \right] \nonumber \\
+&=& \frac{4\alpha^2}{4\sqrt{2}\alpha^2} \nonumber \\
+&=& \frac{1}{\sqrt{2}},
+\end{eqnarray}
+which the square of this is $1/2$ as expected.
+
+Thus, our result generalises to the expected results for passing a single photon Fock state inputted in modes one and two through a Hadamard gate.
+\section{Odd Cat HOM dip (preferred example)}
+In the limit of small $\alpha$ we know that the odd cat state reduces to a single photon Fock state. Here we consider the case of a cat state being inputted into the first two modes and let the unitary be the Hadamard gate. In small $\alpha$ this corresponds to inputting a single photon Fock state into the first two modes and interfering them in a single 50-50 beamsplitter. Therefore, the corresponding bunching in the output modes would to be expected. In this section we show that our expression of Eq.~\ref{eq:sub} does show the expected bunching. 
+
+We begin by putting an odd cat state $\ket{\mathrm{cat}_-}$ with $t=2$ terms into the first $m=2$ modes. Then Eq.~\ref{eq:sub} becomes,
+\begin{eqnarray} \label{eq:exp}
+\gamma_s &\approx& \frac{1}{(2\alpha)^2\sqrt{S_1!S_2!}} \sum_{t_1,t_2=1}^{2} (-1)^{\sigma(\vec{t})} \prod_{j=1}^2 (\beta_{t_1,t_2}^{(j)})^{S_j} \nonumber \\
+&=& \frac{1}{(2\alpha)^2\sqrt{S_1!S_2!}} \sum_{t_1,t_2=1}^{2} (-1)^{\sigma(t_1+t_2)} (\beta_{t_1,t_2}^{(1)})^{S_1}(\beta_{t_1,t_2}^{(2)})^{S_2} \nonumber \\
+&=&  \frac{1}{(2\alpha)^2\sqrt{S_1!S_2!}} \left[
+(\beta_{1,1}^{(1)})^{S_1}(\beta_{1,1}^{(2)})^{S_2}
+-(\beta_{1,2}^{(1)})^{S_1}(\beta_{1,2}^{(2)})^{S_2}
+-(\beta_{2,1}^{(1)})^{S_1}(\beta_{2,1}^{(2)})^{S_2}
++(\beta_{2,2}^{(1)})^{S_1}(\beta_{2,2}^{(2)})^{S_2}
+\right]
+\end{eqnarray}
+
+Now to calculate the $\beta_{\vec{t}}^{(j)}$'s for this case we first take the tensor product between the first two modes. Ignoring the normalisation factor this yields, 
+\begin{eqnarray} 
+\ket{\mathrm{cat}\_}&=&(\ket{\alpha}-\ket{-\alpha})\otimes(\ket{\alpha}-\ket{-\alpha}) \nonumber \\
+&=&\ket{\alpha,\alpha}-\ket{\alpha,-\alpha}-\ket{-\alpha,\alpha}+\ket{-\alpha,-\alpha}.
+\end{eqnarray}
+
+Next we pass them through a Hadamard gate,
+\begin{equation}
+U\ket{\mathrm{cat}\_}=\ket{\sqrt{2}\alpha,0}-\ket{0,\sqrt{2}\alpha}-\ket{0,-\sqrt{2}\alpha}+\ket{-\sqrt{2}\alpha,0}.
+\end{equation}
+Now we read off the $\beta_{\vec{t}}^{(j)}$'s to be
+\begin{eqnarray}
+\beta_{1,1}^{(1)}&=&\sqrt{2}\alpha \nonumber \\
+\beta_{1,2}^{(1)}&=&0 \nonumber \\
+\beta_{2,1}^{(1)}&=&0 \nonumber \\
+\beta_{2,2}^{(1)}&=&-\sqrt{2}\alpha \nonumber \\
+\beta_{1,1}^{(2)}&=&0 \nonumber \\
+\beta_{1,2}^{(2)}&=&\sqrt{2}\alpha \nonumber \\
+\beta_{2,1}^{(2)}&=&-\sqrt{2}\alpha \nonumber \\
+\beta_{2,2}^{(2)}&=&0. \nonumber \\
+\end{eqnarray}
+
+Now Eq.~\ref{eq:exp} becomes,
+\begin{eqnarray} \label{eq:b}
+\gamma_s &=&  \frac{1}{(2\alpha)^2\sqrt{S_1!S_2!}} \left[
+(\sqrt{2\alpha})^{S_1}(0)^{S_2}
+-(0)^{S_1}(\sqrt{2}\alpha)^{S_2}
+-(0)^{S_1}(-\sqrt{2}\alpha)^{S_2}
++(-\sqrt{2}\alpha)^{S_1}(0)^{S_2}
+\right].
+\end{eqnarray}
+
+Because we are dealing in the limit of small $\alpha$, a non-zero number arbitrarily close to zero raised to a zero power is one, so the terms $0^{S_j}=\delta_{S_j,0}$. Now Eq.~\ref{eq:b} becomes,
+\begin{eqnarray} \label{eq:Z}
+\gamma_s &=&  \frac{1}{(2\alpha)^2\sqrt{S_1!S_2!}} \left[
+(\sqrt{2\alpha})^{S_1}\delta_{S_2,0}
+-(\sqrt{2}\alpha)^{S_2}\delta_{S_1,0}
+-(-\sqrt{2}\alpha)^{S_2}\delta_{S_1,0}
++(-\sqrt{2}\alpha)^{S_1}\delta_{S_2,0}
+\right].
+\end{eqnarray}
+
+For this example we know that there are three possible signature outcomes. We expect that the configuration $S_1=S_2=1$ is not possible due to HOM photon bunching and thus in this case $\gamma_s=0$. For configurations $S_1=0$ and $S_2=2$ or $S_1=2$ and $S_2=0$ we would expect a non-zero configuration amplitude of $\gamma_s=1/2$ in each case. Next, we will show that this is indeed the case. 
+\subsection{Configuration $S_1=S_2=1$}
+With configuration $S_1=S_2=1$ Eq.~\ref{eq:Z} becomes,
+\begin{eqnarray}
+\gamma_s &\approx& \frac{1}{4\alpha^2} \left[ 
+(\sqrt{2}\alpha)\delta_{1,0}
+-(\sqrt{2}\alpha)\delta_{1,0}
+-(-\sqrt{2}\alpha)\delta_{1,0}
++(-\sqrt{2}\alpha)\delta_{1,0} \right] \nonumber \\
+&=& 0,
+\end{eqnarray}
+which is zero as expected. 
+
+\subsection{Configuration $S_1=0$ and $S_2=2$}
+With configuration $S_1=0$ and $S_2=2$ Eq.~\ref{eq:Z} becomes,
+\begin{eqnarray} \label{}
+\gamma_s &=&  \frac{1}{(2\alpha)^2\sqrt{0!2!}} \left[
+(\sqrt{2\alpha})^{0}\delta_{2,0}
+-(\sqrt{2}\alpha)^{2}\delta_{0,0}
+-(-\sqrt{2}\alpha)^{2}\delta_{0,0}
++(-\sqrt{2}\alpha)^{0}\delta_{2,0}
+\right] \nonumber \\
+&=& \frac{1}{4\alpha^2\sqrt{2}} \left[
+-2\alpha^{2}
+-2\alpha^{2} 
+\right] \nonumber \\
+&=& \frac{-1}{\sqrt{2}},
+\end{eqnarray}
+which the square of this is $1/2$ as expected.
+
+\subsection{Configuration $S_1=2$ and $S_2=0$}
+With configuration $S_1=2$ and $S_2=0$ Eq.~\ref{eq:2InputSmallAlpha} becomes,
+\begin{eqnarray} \label{}
+\gamma_s &=&  \frac{1}{(2\alpha)^2\sqrt{2!0!}} \left[
+(\sqrt{2\alpha})^{2}\delta_{0,0}
+-(\sqrt{2}\alpha)^{0}\delta_{2,0}
+-(-\sqrt{2}\alpha)^{0}\delta_{2,0}
++(-\sqrt{2}\alpha)^{2}\delta_{0,0}
+\right] \nonumber \\
+&=& \frac{1}{4\alpha^2\sqrt{2}} \left[
+2\alpha^{2}
++2\alpha^{2}
+\right] \nonumber \\
+&=& \frac{1}{\sqrt{2}},
+\end{eqnarray}
+which the square of this is $1/2$ as expected.
+
+Thus, our result generalises to the expected results for passing a single photon Fock state inputted in modes one and two through a Hadamard gate.
+\section{Even Cat General Derivation}
+Again, we begin with our generalised cat state result in Eq.~\ref{eq:mainresult}. We input the even cat state which has the form (\textbf{need to double check normalisation})
+\begin{eqnarray}
+\ket{\mathrm{cat}_+} &=& \frac{\ket{\alpha}+\ket{-\alpha}}{\sqrt{2(1+\mathrm{exp}[-2\alpha^2])}}.
+\end{eqnarray}
+
+When considering the specific example of $\ket{\mathrm{cat}_+}$ the $\lambda_{t_j}^{(j)}$ of Eq.~\ref{eq:mainresult} goes to $(1)^{t_j}=1\ \forall\ j$. Eq.~\ref{eq:mainresult} then becomes,
+\begin{eqnarray} \label{}
+\gamma_s &=& \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m \frac{f_{S_j}(\beta_{\vec{t}}^{(j)})}{\sqrt{2(1+\mathrm{exp}[-2\alpha^2])}} \right).
+\end{eqnarray}
+
+Since the $\beta_{\vec{t}}^{(j)}$'s in Eq.~\ref{eq:mainresult2} depend on $\alpha$, we substitute in the argument of $f_{S_j}$ using Eq.~ \ref{eq:coherentState},
+\begin{equation} 
+\gamma_s = \frac{1}{\left(\sqrt{2(1+\mathrm{exp}[-2\alpha^2])}\right)^m} \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m \mathrm{exp}\left[-\frac{|\beta_{\vec{t}}^{(j)}|^2}{2}\right] \frac{(\beta_{\vec{t}}^{(j)})^{S_j}}{\sqrt{S_j!}}\right).
+\end{equation}
+
+Next we take a first order approximation. Since $\alpha$ is small, the exponential in the numerator goes to one and the exponential in the denominator this time also goes to one since there is no divergence this time. This yields,
+\begin{eqnarray} \label{eq:Y}
+\gamma_s &\approx& \frac{1}{2^m} \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m \left(1\right) \frac{(\beta_{\vec{t}}^{(j)})^{S_j}}{\sqrt{S_j!}}\right) \nonumber \\
+&=& \frac{1}{2^m\sqrt{S_1!S_2!\dots S_m!}} \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m (\beta_{\vec{t}}^{(j)})^{S_j}\right).
+\end{eqnarray}
+In the limit of small $\alpha$ an even cat states becomes a zero photon Fock state which is equivalent to inputting vacuum into a mode. If we input small $\alpha$ even cat states into all $m$ modes then we are essentially inputting vacuum into every mode. In this case there would be no photon's to measure at the output of the cat-sampling machine so every $\beta_{\vec{t}}^{(j)}=0$. Because we are dealing in the limit of small $\alpha$ the terms $0^{S_j}=\delta_{S_j,0}$ and Eq.~\ref{eq:Y} becomes,
+\begin{eqnarray} \label{}
+\gamma_s &\approx& \frac{1}{2^m\sqrt{S_1!S_2!\dots S_m!}} \sum_{\vec{t}=1}^{t} \left(\prod_{j=1}^m \delta_{S_j,0}\right).
+\end{eqnarray}
+Thus, it is easily observed that only when every output mode detects zero photons is there a non-zero probability of getting that event. (\textbf{Actually it should reduce to one. I must have stuffed something up})
+% Conclusion
+\section{Conclusion}
+
+% Acknowledgments
+\begin{acknowledgments}
+This research was conducted by the Australian Research Council Centre of Excellence for Engineered Quantum Systems (Project number CE110001013).
+\end{acknowledgments}
+
+% Bilgiography
+\bibliography{paper}
+
+\end{document}

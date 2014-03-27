@@ -1,0 +1,86 @@
+%\documentclass[manuscript,showpacs,preprint,prl]{revtex4-1}
+%\documentclass[superscriptaddress,twocolumn,showpacs,prl]{revtex4-1}
+\documentclass[twocolumn,prl]{revtex4}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\def\bra#1{{\left\langle #1 \right|}}
+\def\ket#1{{\left| #1 \right\rangle}}
+
+%\usepackage{times}
+\begin{document}
+
+\title{Orthogonal cat basis: alternative approach}
+\author{Keith R. Motes}
+	\affiliation{Centre for Engineered Quantum Systems, Department of Physics and Astronomy, Macquarie University, Sydney NSW 2113, Australia}
+\author{P.A. Knott}
+	\email{phy5pak@leeds.ac.uk}
+	\affiliation{School of Physics and Astronomy, University of Leeds, Leeds LS2 9JT, United Kingdom}
+	\affiliation{NTT Basic Research Laboratories, NTT Corporation, 3-1 Morinosato-Wakamiya, Atsugi, Kanagawa 243-0198, Japan}
+\author{W.J. Munro}
+	\email{william.munro@lab.ntt.co.jp}
+	\affiliation{NTT Basic Research Laboratories, NTT Corporation, 3-1 Morinosato-Wakamiya, Atsugi, Kanagawa 243-0198, Japan}
+\author{Peter P. Rohde}
+	\affiliation{Centre for Engineered Quantum Systems, Department of Physics and Astronomy, Macquarie University, Sydney NSW 2113, Australia}
+\pacs{}
+\maketitle
+
+\section{Basis for $|0\rangle$ and $|1\rangle$}
+
+An alternative approach to an orthogonal cat basis is presented here. The potential problem with taking $|0\rangle$ to be the vacuum and $|1\rangle$ to be the odd cat state $|\alpha\rangle-|-\alpha\rangle$ is that it is not clear whether this approach is consistent with annihilation and creation operators. Whilst the transform from $|0\rangle$ to $1\rangle$ is simple, from $|1\rangle$ to $|0\rangle$ is not so clear. Furthermore, we found complications when expressing states such as $|2\rangle$, $|3\rangle$ etc. An alternative approach is to take:
+
+\begin{eqnarray}
+|0\rangle=|{even}\rangle =|\alpha\rangle+|-\alpha\rangle \\
+|1\rangle=|{odd}\rangle =|\alpha\rangle-|-\alpha\rangle 
+\end{eqnarray}
+
+These two states can be found by acting on the state $|0\rangle$ with the operator $\hat{a}/\alpha$ where $\hat{a}$ is the normal fock state annihilation operator. Normalisation is ignored here: the two states clearly have different normalisation factors. In the limit of small $\alpha$ these states reproduce the fock states $|0\rangle$ and  $|1\rangle$.
+
+We can then look at the action of a beam splitter. We first take the input $|1,0\rangle=|{odd},{even}\rangle$ and transform it through the beam spliter in the usual way. We then project back onto the cat basis by acting with the identity $I=|0\rangle\langle0|+|1\rangle\langle1|$. As hoped, the final state we are left with is:
+
+\begin{eqnarray}
+|1,0\rangle+|0,1\rangle.
+\end{eqnarray}
+
+Care has to be taken here in distinguishing between the basis state $|0\rangle$ and the vacuum state which we will label $|0\rangle_v$.
+
+If we then look at reporducing the Hong dip, then the characteristics of this basis set become eveident: there is no state $|2\rangle$ defined in this way. To access the state $|2\rangle$, and therefore show the Hong dip, we need to move to a higher order basis set.
+
+\
+
+\section{Basis for 3 cats}
+
+To create the 3 cat basis, we take a generator state:
+
+\begin{equation}
+|3\rangle_{gen}=|\alpha\rangle +|e^{2\pi/3}\alpha\rangle +|e^{-2\pi/3}\alpha\rangle.
+\end{equation}
+
+This only contains multiple-of-three number states. For simplicity we take $A=e^{2\pi/3}$ so that $A^2=e^{-2\pi/3}$ and $A^3=1$. We then act on $|3\rangle_{gen}$ with the operator $\hat{a}/\alpha$, renormalising each time, to give:
+
+\begin{eqnarray}
+|2\rangle=\frac{\hat{a}}{\alpha}|3\rangle_{gen}=|\alpha\rangle +A|A\alpha\rangle +A^2|A^2\alpha\rangle \\
+|1\rangle=\frac{\hat{a}}{\alpha}|2\rangle=|\alpha\rangle +A^2|A\alpha\rangle +A|A^2\alpha\rangle \\
+|0\rangle=\frac{\hat{a}}{\alpha}|1\rangle=|\alpha\rangle +|A\alpha\rangle +|A^2\alpha\rangle.
+\end{eqnarray}
+
+It is important to note that $|3\rangle_{gen}$ is \textbf{not} in the basis. In the small $\alpha$ limit these states all produce their respective number states, and they are all orthogonal to one another. We no longer have to artifically create the state $|2\rangle$, it follows natually from the formalism. It is also easy to construct an arbitrary basis with this formalism, using the generator:
+
+\begin{equation}
+|n\rangle_{gen}=\sum_{j=0}^{n-1} |e^{2\pi j/n}\alpha\rangle.
+\end{equation}
+
+The next step would be to take input $|1,1\rangle$ in the 3 cat basis through a beam splitter, project back onto the basis with the identity, and (hopefully) reproduce the Hong dip. Unfortunately this calculation is long winded and I have not worked through it yet.
+
+Bill pointed out that there might be a problem with this formalism when we look at variable beam splitters. This basis is defined on a circle in phase space: variable beam splitters may take you off the circle, so the basis can no longer define the state.
+
+
+
+
+%=========Acknowledgments============
+This research was conducted by the Australian Re- search Council Centre of Excellence for Engineered Quantum Systems (Project number CE110001013).
+%This work was partly supported by DSTL (contract number DSTLX1000063869).
+%===================================
+
+\end{document}
