@@ -14,7 +14,7 @@
 \bibliographystyle{apsrev}
 
 \title{Cats doing algebra}
- 
+
 \author{Keith R. Motes}
 \affiliation{Centre for Engineered Quantum Systems, Department of Physics \& Astronomy, Macquarie University, Sydney NSW 2113, Australia}
 
@@ -64,12 +64,19 @@ A^\dag_\pm(\alpha) = D(\alpha) \pm D(-\alpha)
 
 To get the $A$ operators we use the property that $D^{\dag}(\alpha)=D(-\alpha)$,
 \begin{eqnarray}
-A_{\pm}^\dag(\alpha) =D(-\alpha)\pm D(\alpha) = \pm A_\pm(\alpha).
+A_{\pm}(\alpha)=A_{\pm}^{\dag\dag}(\alpha)&=&D^{\dag}(\alpha)\pm D^{\dag}(-\alpha) \nonumber \\
+&=&D(-\alpha)\pm D(\alpha).
+\end{eqnarray}
+We see that $A_+(\alpha)=A^{\dag}_+(\alpha)$ and $A_-(\alpha)=-A^{\dag}_-(\alpha)$.
+
+Then we have
+\begin{eqnarray}
+A^\dag_\pm(\alpha) \ket{0} &=& \ket{\alpha} \pm \ket{-\alpha} \\
+\bra{0}A_\pm(\alpha) &=& \pm \left(\bra{\alpha} \pm \bra{-\alpha}\right)
 \end{eqnarray}
 
 \section{Normalizations}
-
-We will need the normalisation factors and calculate the four possibilities in this section. The normalised vector $\ket{\psi'}= \ket{\psi}/ \sqrt{\ip{\psi}{\psi}}$ thus is must find each possible value of $\ip{\psi}{\psi}$. The four general possible combinations are $\bra{0}A_\pm(\alpha)A^\dag_\pm(\beta)\ket{0}$, which are calculated here,
+We will need the normalisation factors and calculate the four possibilities in this section. The normalised vector $\ket{\psi'}= \ket{\psi}/ \ip{\psi}{\psi}$. We must find each possible value of $\ip{\psi}{\psi}$. The four general possible combinations are $\bra{0}A_\pm(\alpha)A^\dag_\pm(\beta)\ket{0}$, which are calculated here,
 \begin{eqnarray}
 \bra{0}A_+(\alpha)A^\dag_+(\beta)\ket{0}&=& (\bra{\alpha}+\bra{-\alpha})(\ket{\beta}+\ket{-\beta}) \nonumber \\
 &=& \ip{\alpha}{\beta}+\ip{\alpha}{-\beta}+\ip{-\alpha}{\beta}+\ip{-\alpha}{-\beta} \nonumber \\
@@ -90,36 +97,27 @@ We will need the normalisation factors and calculate the four possibilities in t
 &=& -\left(\ip{\alpha}{\beta}+\ip{\alpha}{-\beta}-\ip{-\alpha}{\beta}-\ip{-\alpha}{-\beta}\right) \nonumber \\
 &=& 0,
 \end{eqnarray}
-where the coherent state overlap
-\begin{equation}
-\ip{\alpha}{\beta}\equiv e^{-(|\alpha|^2+|\beta|^2 - 2\alpha^*\beta)/2}
-\end{equation}
-was used.
+where the coherent state overlap $\ip{\alpha}{\beta}\equiv\mathrm{exp}\left[-1/2(|\alpha|^2+|\beta|^2 - 2\alpha^*\beta) \right] $ was used.
 
-We will define $\mathcal{N_{++}(\alpha,\beta)} = \bra{0}A_+(\alpha)A^\dag_+(\beta)\ket{0}$, and similarly for the other sign combinations. Then normalised cat states will take the form,
-\begin{equation}
-\ket\psi_\mathrm{odd} = \frac{A_+^\dag(\alpha)}{\sqrt{\mathcal{N}_{++}(\alpha,\alpha)}}\ket{0}
-\end{equation}
-Normalisation of any cat state can be expressed in terms of $\mathcal{N}$ parameters, including higher order cats as they can be expressed as superpositions of first order cats.
+
 
 \section{Small $\alpha$ limit for the $A^\dag$ operator}
 
 In the small $\alpha$ limit we have
 \begin{eqnarray}
-A^\dag_\pm(\alpha)  &=& (1+(\alpha a^\dag - \alpha^* a)) \pm (1+(-\alpha a^\dag + \alpha^* a)) \nonumber \\
+A^\dag_\pm(\alpha)  &=& (1+(\alpha a^\dag - \alpha^* a)) \pm (1+(-\alpha a^\dag + \alpha^* a)),\nonumber \\
 \end{eqnarray}
+because $e^{x}\approx 1+x$ for $x\ll1$.
 
-For the odd case this reduces to
+For the even (+) case this reduces to,
 \begin{eqnarray}
-A^\dag_-(\alpha\to 0) = 2\alpha a^\dag - 2\alpha^* a
+A^\dag_+(\alpha\to 0) = 2,
 \end{eqnarray}
-
-And for the even case this reduces to.
+and for the odd (-) case this reduces to
 \begin{eqnarray}
-A^\dag_+(\alpha\to 0) = 2
+A^\dag_-(\alpha\to 0) = 2\alpha a^\dag - 2\alpha^* a.
 \end{eqnarray}
-
-Thus in the small $\alpha$ limit our $A^\dag$ does not reduce to the photonic creation operator
+Thus in the small $\alpha$ limit our $A^\dag_\pm$ does not reduce to the photonic creation operator.
 
 \section{Commutation relations}
 
@@ -129,13 +127,11 @@ Since the cat operators may be expressed in terms of displacement operators, and
 &=& e^{i \mathrm{Im}[\alpha \beta^*]}D(\alpha+\beta)-e^{i \mathrm{Im}[\beta \alpha^*]}D(\alpha+\beta) \nonumber \\
 &=& D(\alpha+\beta)\left(e^{i \mathrm{Im}[\alpha \beta^*]}- e^{i \mathrm{Im}[\beta \alpha^*]}\right).
 \end{eqnarray}
-\textbf{I assume this simplifies further!}
 This is zero if $\alpha$ and $\beta$ are real which is the case for the rest of this work. It follows that cat operators commute,
 \begin{eqnarray}
 [A_\pm^\dag(\alpha), A_\pm^\dag(\beta)] &=& 0 \\ \nonumber
 [A_\pm^\dag(\alpha), A_\mp^\dag(\beta)] &=& 0 
 \end{eqnarray}
-\textbf{Is this only true for $\alpha=\beta$, or does this hold in general?}
 
 \section{A cat basis}
 
@@ -178,10 +174,10 @@ A^\dag_-(\alpha)A^\dag_+(\beta) &=& [D(\alpha)-D(-\alpha)][D(\beta)+D(-\beta)] \
 
 When $\alpha=\beta$ these become,
 \begin{eqnarray}
-A^\dag_-(\alpha)A^\dag_-(\beta) &=& A^\dag_+(2\alpha) - 2 \\
-A^\dag_+(\alpha)A^\dag_+(\beta) &=& A^\dag_+(2\alpha) + 2 \\
-A^\dag_+(\alpha)A^\dag_-(\beta) &=& A^\dag_-(2\alpha) \\
-A^\dag_-(\alpha)A^\dag_+(\beta) &=& A^\dag_-(2\alpha)
+A^\dag_-(\alpha)A^\dag_-(\alpha) &=& A^\dag_+(2\alpha) - 2 \\
+A^\dag_+(\alpha)A^\dag_+(\alpha) &=& A^\dag_+(2\alpha) + 2 \\
+A^\dag_+(\alpha)A^\dag_-(\alpha) &=& A^\dag_-(2\alpha) \\
+A^\dag_-(\alpha)A^\dag_+(\alpha) &=& A^\dag_-(2\alpha)
 \end{eqnarray}
 Thus, in general, a second order cat is a superposition of two first order cats of the sum and difference of the respective amplitudes. From these rules, one can recursively define the application of higher order cat creation operators in terms of superpositions of first order cat creation operators. Specifically, an $n$th power of the cat creation operator will be a superposition of $2^{n-1}$ first order cat creation operators.
 
@@ -218,7 +214,7 @@ B_\pm^\dag(\alpha) &=& [D_2(\alpha)\pm D_2(-\alpha)] \nonumber \\
 &\to& D_1(U_{2,1}\alpha)D_2(U_{2,2}\alpha)\nonumber\\
 &\pm& D_1(-U_{2,1}\alpha)D_2(-U_{2,2}\alpha) \nonumber \\
 \end{eqnarray}
-where $A$ and $B$ are cat operators on the first and second modes.
+where $A$ and $B$ are cat operators on the first and second output modes.
 
 Thus,
 \begin{eqnarray}
@@ -244,9 +240,9 @@ U = \frac{1}{\sqrt{2}} \left( \begin{array}{cc}
 \end{array} \right)
 \end{eqnarray}
 
-with a first order cat state at each input, $A_+^\dag(\alpha)B_+^\dag(\alpha)\ket{0}$. Then, using our beamsplitter relation we have,
+with a first order cat state at each input, $A_+^\dag(\alpha)\otimes B_+^\dag(\alpha)\ket{0}$. Then, using our beamsplitter relation we have,
 \begin{eqnarray}
-A_+^\dag(\alpha)B_+^\dag(\alpha)\ket{0} &\to&\frac{1}{2}\left[[A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2}) \right.\nonumber \\
+A_+^\dag(\alpha)\otimes B_+^\dag(\alpha)\ket{0} &\to&\frac{1}{2}\left[[A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2}) \right.\nonumber \\
 &+& A_-^\dag(\alpha/\sqrt{2}) B_-^\dag(\alpha/\sqrt{2})] \nonumber\\
 &\times& [A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(-\alpha/\sqrt{2}) \nonumber \\
 &+& \left.A_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2})]\right]\ket{0} \nonumber \\
@@ -274,9 +270,10 @@ According to Eq.'s \ref{eq:HOC1}, \ref{eq:HOC2}, \ref{eq:HOC3}, and \ref{eq:HOC4
 \left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(B_+^\dag(0)-  B_+^\dag(\sqrt{2}\alpha)\right)\right]\ket{0}.\nonumber \\
 \end{eqnarray}
 
-Let us post-select upon detecting the vacuum state at the second output mode by using the projector $\ket{0}\bra{0}$. Then the odd cat terms in the second mode, $B_-^\dag$, vanish, as they only contain odd photon number terms. And the remaining terms are
+Let us post-select upon detecting the vacuum state at the second output mode. Then the odd cat terms in the second mode, $B_-^\dag$, vanish, as they only contain odd photon number terms. The remaining terms are,
+%By using the projector $\ket{0}\bra{0}$
 \begin{eqnarray}
-\frac{1}{\sqrt{2}}\ket{0}\bra{0}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(B_+^\dag(0)+  B_+^\dag(\sqrt{2}\alpha)\right) \right.\nonumber \\
+\frac{1}{\sqrt{2}}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(B_+^\dag(0)+  B_+^\dag(\sqrt{2}\alpha)\right) \right.\nonumber \\
 \left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(B_+^\dag(0)-  B_+^\dag(\sqrt{2}\alpha)\right)\right]\ket{0} .\nonumber \\
 \end{eqnarray}
 Now acting $\ket{0}\bra{0}$ will pull out the $0$ photon amplitudes of the remainding $B_+^{\dag}$ terms, which leaves us with
@@ -295,9 +292,9 @@ Thus, a beamsplitter fed with two first order cat states, conditioned upon the v
 
 \textbf{Generalise this result to breeding arbitrary higher order cat states. i.e. let's show that we can make an $n+1$ order cat state from an $n$ order cat state and a first order cat states. Then it will follow recursively that we can generate cats of arbitrary order.}
 
-\begin{acknowledgments}
-This research was conducted by the Australian Research Council Centre of Excellence for Engineered Quantum Systems (Project number CE110001013). 
-\end{acknowledgments}
+%\begin{acknowledgments}
+%This research was conducted by the Australian Research Council Centre of Excellence for Engineered Quantum Systems (Project number CE110001013). 
+%\end{acknowledgments}
 
 \bibliography{paper}
 
