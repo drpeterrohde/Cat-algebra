@@ -5,9 +5,14 @@
 \newcommand{\ip}[2]{\langle{#1}|{#2}\rangle}
 \newcommand{\op}[2]{\hat{\textbf{#1}}_{#2}}
 \newcommand{\dagop}[2]{\hat{\textbf{#1}}_{#2}^\dag}
+\newcommand{\keith}[1]{{\color{cyan}{#1}}}
+\newcommand{\peter}[1]{{\color{blue}{#1}}}
+\newcommand{\remove}[1]{{\color{red}{#1}}}
 \usepackage[pdftex]{graphicx}
 \usepackage{mathrsfs}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage[colorlinks]{hyperref}
+\usepackage{comment}
 
 \begin{document}
 
@@ -143,6 +148,17 @@ it follows that first order cat states can generate arbitrary coherent states, a
 
 \section{Higher order cats}
 
+%**********Figure*****************
+\begin{figure}[!htb]
+\includegraphics[scale=0.45]{1stOrder.pdf}\\
+\includegraphics[scale=0.35]{2ndOrder.pdf}\\
+\includegraphics[scale=0.35]{3rdOrder.pdf}\\
+\includegraphics[scale=0.3]{4thOrder.pdf}
+\caption{\label{fig:Cats}\keith{Wigner function of the (a) first $A^{\dag}_+(\alpha)$, (b) second $A^{\dag2}_+(\alpha)$, (c) third $A^{\dag3}_+(\alpha)$, and (d) fourth $A^{\dag4}_+(\alpha)$ order cat state for $\alpha=2$. The quantum signatures from the Wigner function oscillate in it's phase space  from even to odd ordered states.}}
+\end{figure}
+%***********************************
+
+\subsection{Second Order Cats}
 There are four combinations of how second order cats can be created
 \begin{eqnarray} \label{eq:HOC1}
 A^\dag_-(\alpha)A^\dag_-(\beta) &=& [D(\alpha)-D(-\alpha)][D(\beta)-D(-\beta)] \nonumber \\ 
@@ -179,7 +195,33 @@ A^\dag_+(\alpha)A^\dag_+(\alpha) &=& A^\dag_+(2\alpha) + 2 \\
 A^\dag_+(\alpha)A^\dag_-(\alpha) &=& A^\dag_-(2\alpha) \\
 A^\dag_-(\alpha)A^\dag_+(\alpha) &=& A^\dag_-(2\alpha)
 \end{eqnarray}
-Thus, in general, a second order cat is a superposition of two first order cats of the sum and difference of the respective amplitudes. From these rules, one can recursively define the application of higher order cat creation operators in terms of superpositions of first order cat creation operators. Specifically, an $n$th power of the cat creation operator will be a superposition of $2^{n-1}$ first order cat creation operators.
+Thus, in general, a second order cat is a superposition of two first order cats of the sum and difference of the respective amplitudes. From these rules, one can recursively define the application of higher order cat creation operators in terms of superpositions of first order cat creation operators. Specifically, an $n$th power of the cat creation operator will be a superposition of $2^{n-1}$ first order cat creation operators. \keith{\textbf{Lets plot the +- \& -+ versions of the second order cats and it seems that you just get a first order cat because the vacuum term is not present. It's seems as though by acting the + and - or - and + maybe the order doesn't increase. But maybe something else interesting is happening. One interesting thing is that maybe it just grows the cat instead of increasing the order.}}
+
+
+\keith{\subsection{Third Order Cats}
+The third order cat,
+\begin{eqnarray} \label{eq:HOC3}
+A^\dag_+(\alpha)A^\dag_+(\beta)A^\dag_+(\gamma) &=& A^\dag_+(\alpha+\beta+\gamma) + A^\dag_+(-\alpha+\beta+\gamma) \nonumber \\ 
+&+& A^\dag_+(\alpha-\beta+\gamma) + A^\dag_+(-\alpha-\beta+\gamma) \nonumber \\
+\end{eqnarray}
+is in general a superposition of four first order cat operators. Or this can be written in terms of two second order cats as,
+\begin{eqnarray} \label{}
+A^\dag_+(\alpha)A^\dag_+(\beta)A^\dag_+(\gamma) &=& A^\dag_+(\beta+\gamma+\alpha)A^\dag_+(\beta+\gamma-\alpha) \nonumber \\ 
+&+& A^\dag_+(\gamma-\beta+\alpha)A^\dag_+(\gamma-\beta-\alpha),\nonumber \\
+ \end{eqnarray}
+ which can be written in terms of first order cats,
+ \begin{eqnarray} \label{}
+A^\dag_+(\alpha)A^\dag_+(\beta)A^\dag_+(\gamma) &=& A^\dag_+(2(\gamma+\beta))+A^\dag_+(2\alpha) \nonumber \\ 
+&+& A^\dag_+(2(\gamma-\beta))+A^\dag_+(2\alpha) \nonumber \\
+&=& A^\dag_+(2(\gamma+\beta)) + A^\dag_+(2(\gamma-\beta)) \nonumber \\
+&+& 2A^\dag_+(2\alpha).
+ \end{eqnarray}
+ This is in general a superposition of three first order cats.
+}
+
+\keith{\subsection{Observations with Daniel}
+The interference between the blobs is where the quantumness is. 
+}
 
 \section{Beamsplitter rules}
 
@@ -270,7 +312,7 @@ According to Eq.'s \ref{eq:HOC1}, \ref{eq:HOC2}, \ref{eq:HOC3}, and \ref{eq:HOC4
 \left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(B_+^\dag(0)-  B_+^\dag(\sqrt{2}\alpha)\right)\right]\ket{0}.\nonumber \\
 \end{eqnarray}
 
-Let us post-select upon detecting the vacuum state at the second output mode. Then the odd cat terms in the second mode, $B_-^\dag$, vanish, as they only contain odd photon number terms. The remaining terms are,
+Let us post-select upon detecting the vacuum state at the second output mode. Then the odd cat terms in the second mode, $B_-^\dag$, vanish, as they only contain odd photon number terms and never $\ket{0}$. The remaining terms are,
 %By using the projector $\ket{0}\bra{0}$
 \begin{eqnarray}
 \frac{1}{\sqrt{2}}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(B_+^\dag(0)+  B_+^\dag(\sqrt{2}\alpha)\right) \right.\nonumber \\
