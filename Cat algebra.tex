@@ -189,7 +189,7 @@ A^\dag_-(\alpha)A^\dag_+(\beta) &=& [D(\alpha)-D(-\alpha)][D(\beta)+D(-\beta)] \
 \end{eqnarray}
 
 When $\alpha=\beta$ these become,
-\begin{eqnarray}
+\begin{eqnarray} \label{eq:sameSOC}
 A^\dag_-(\alpha)A^\dag_-(\alpha) &=& A^\dag_+(2\alpha) - 2 \\
 A^\dag_+(\alpha)A^\dag_+(\alpha) &=& A^\dag_+(2\alpha) + 2 \\
 A^\dag_+(\alpha)A^\dag_-(\alpha) &=& A^\dag_-(2\alpha) \\
@@ -217,10 +217,6 @@ A^\dag_+(\alpha)A^\dag_+(\beta)A^\dag_+(\gamma) &=& A^\dag_+(2(\gamma+\beta))+A^
 &+& 2A^\dag_+(2\alpha).
  \end{eqnarray}
  This is in general a superposition of three first order cats.
-}
-
-\keith{\subsection{Observations with Daniel}
-The interference between the blobs is where the quantumness is. 
 }
 
 \section{Beamsplitter rules}
@@ -282,19 +278,19 @@ U = \frac{1}{\sqrt{2}} \left( \begin{array}{cc}
 \end{array} \right)
 \end{eqnarray}
 
-with a first order cat state at each input, $A_+^\dag(\alpha)\otimes B_+^\dag(\alpha)\ket{0}$. Then, using our beamsplitter relation we have,
+with a first order cat state at each input, $A_+^\dag(\alpha)\otimes B_+^\dag(\alpha)\ket{0}_1 \ket{0}_2$. Then, using our beamsplitter relation we have,
 \begin{eqnarray}
-A_+^\dag(\alpha)\otimes B_+^\dag(\alpha)\ket{0} &\to&\frac{1}{2}\left[[A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2}) \right.\nonumber \\
+A_+^\dag(\alpha)\otimes B_+^\dag(\alpha)\ket{0}_1 \ket{0}_2 &\to&\frac{1}{2}\left[[A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2}) \right.\nonumber \\
 &+& A_-^\dag(\alpha/\sqrt{2}) B_-^\dag(\alpha/\sqrt{2})] \nonumber\\
 &\times& [A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(-\alpha/\sqrt{2}) \nonumber \\
-&+& \left.A_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2})]\right]\ket{0} \nonumber \\
+&+& \left.A_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2})]\right]\ket{0}_1 \ket{0}_2 \nonumber \\
 \end{eqnarray}
 Upon expansion this yields,
 \begin{eqnarray}
 \frac{1}{2}\left[A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(-\alpha/\sqrt{2}) \right. \nonumber \\
 + A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2}) \nonumber \\
 + A_-^\dag(\alpha/\sqrt{2})B_-^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(-\alpha/\sqrt{2}) \nonumber \\
-\left. + A_-^\dag(\alpha/\sqrt{2})B_-^\dag(\alpha/\sqrt{2})A_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2}) \right]\ket{0}.\nonumber \\
+\left. + A_-^\dag(\alpha/\sqrt{2})B_-^\dag(\alpha/\sqrt{2})A_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2}) \right]\ket{0}_1 \ket{0}_2.\nonumber \\
 \end{eqnarray}
 
 Since the operators commute we can rewrite this as,
@@ -302,33 +298,35 @@ Since the operators commute we can rewrite this as,
 \frac{1}{2}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2})  B_+^\dag(-\alpha/\sqrt{2}) \right. \nonumber \\
 + A_+^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2}) B_+^\dag(\alpha/\sqrt{2}) B_-^\dag(-\alpha/\sqrt{2}) \nonumber \\
 + A_-^\dag(\alpha/\sqrt{2})A_+^\dag(\alpha/\sqrt{2})B_-^\dag(\alpha/\sqrt{2})  B_+^\dag(-\alpha/\sqrt{2}) \nonumber \\
-\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})B_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2})\right] \ket{0}.\nonumber \\
+\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})B_-^\dag(\alpha/\sqrt{2})B_-^\dag(-\alpha/\sqrt{2})\right] \ket{0}_1 \ket{0}_2.\nonumber \\
 \end{eqnarray}
 According to Eq.'s \ref{eq:HOC1}, \ref{eq:HOC2}, \ref{eq:HOC3}, and \ref{eq:HOC4} the second order terms can be rewritten in terms of a superposition of first order terms. Applying this to the $B_{\pm}^{\dag}$ terms this becomes,
 \begin{eqnarray}
 \frac{1}{2}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(B_+^\dag(0)+  B_+^\dag(\sqrt{2}\alpha)\right) \right.\nonumber \\
 + A_+^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2}) \left(B_-^\dag(0)-  B_-^\dag(\sqrt{2}\alpha)\right) \nonumber \\
 + A_-^\dag(\alpha/\sqrt{2})A_+^\dag(\alpha/\sqrt{2})\left(B_-^\dag(0)+  B_-^\dag(\sqrt{2}\alpha)\right) \nonumber \\
-\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(B_+^\dag(0)-  B_+^\dag(\sqrt{2}\alpha)\right)\right]\ket{0}.\nonumber \\
+\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(B_+^\dag(0)-  B_+^\dag(\sqrt{2}\alpha)\right)\right]\ket{0}_1 \ket{0}_2.\nonumber \\
 \end{eqnarray}
 
 Let us post-select upon detecting the vacuum state at the second output mode. Then the odd cat terms in the second mode, $B_-^\dag$, vanish, as they only contain odd photon number terms and never $\ket{0}$. The remaining terms are,
 %By using the projector $\ket{0}\bra{0}$
 \begin{eqnarray}
-\frac{1}{\sqrt{2}}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(B_+^\dag(0)+  B_+^\dag(\sqrt{2}\alpha)\right) \right.\nonumber \\
-\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(B_+^\dag(0)-  B_+^\dag(\sqrt{2}\alpha)\right)\right]\ket{0} .\nonumber \\
+\frac{1}{\sqrt{2}}\bra{0}_2\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(B_+^\dag(0)+  B_+^\dag(\sqrt{2}\alpha)\right) \right.\nonumber \\
+\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(B_+^\dag(0)-  B_+^\dag(\sqrt{2}\alpha)\right)\right]\ket{0}_1 \ket{0}_2 .\nonumber \\
 \end{eqnarray}
-Now acting $\ket{0}\bra{0}$ will pull out the $0$ photon amplitudes of the remainding $B_+^{\dag}$ terms, which leaves us with
+Projecting $\bra{0}_2$ will pull out the $\ket{0}$ photon amplitudes of the remainding $B_+^{\dag}$ terms, which leaves us with
 \begin{eqnarray}
-\frac{1}{\sqrt{2}}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(2+ 2\right) \right.\nonumber \\
-\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(2-  2)\right)\right]\ket{0}.\nonumber \\
+\frac{1}{\sqrt{2}}\left[A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2}) \left(2+ c_1\right) \right.\nonumber \\
+\left.+ A_-^\dag(\alpha/\sqrt{2}) A_-^\dag(\alpha/\sqrt{2})\left(2-  c_1)\right)\right]\ket{0}_1 \ket{0}_2,\nonumber \\
 \end{eqnarray}
+where $c_1\propto2e^{-|\alpha|^2}$ is the corresponding amplitude of the $\ket{0}$ term in the $B_+^\dag(\sqrt{2}\alpha)$ cat state. 
 
-The second term disappears and after renormalisation this leaves us with,
+After expanding this out in terms of first order cats and simplifying we obtain,
 \begin{eqnarray}
-A_+^\dag(\alpha/\sqrt{2}) A_+^\dag(\alpha/\sqrt{2})\ket{0},
+2\sqrt{2}\left[A_+^\dag(\sqrt{2}\alpha)+c_1\right]\ket{0}_1 \nonumber \\
+=2\sqrt{2}\left[A_+^\dag(\sqrt{2}\alpha)+2e^{-|\alpha|^2}\right]\ket{0}_1
 \end{eqnarray}
-which is a second order cat state.
+which looks like a second order cat as in Eq. \ref{eq:sameSOC} but with a smaller vacuum component.
 
 Thus, a beamsplitter fed with two first order cat states, conditioned upon the vacuum state at one output, yields a second order cat state, providing a simple experimental prescription for preparing higher-order cat states.
 
